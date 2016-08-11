@@ -1,0 +1,11 @@
+email: jonathanpglick@gmail.com
+fullname: 'Jon Glick'
+title: Administrator
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$GYB6to2/heoXvvFqI6kwDe3gnanw9mmZ8YprEEGHkfeQzn8zQkgW2
