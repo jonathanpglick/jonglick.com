@@ -16,7 +16,7 @@ home:
   alias: /blog
   hide_in_urls: false
 pages:
-  theme: twentyfifteen
+  theme: jg-v1
   order:
     by: default
     dir: asc

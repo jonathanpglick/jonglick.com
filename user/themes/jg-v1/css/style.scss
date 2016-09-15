@@ -1,0 +1,89 @@
+/**
+ * Mobi.css imports.
+ */
+@import 'custom';
+@import 'variables';
+@import 'mixins';
+
+@import 'resets';
+
+@import 'layout';
+@import 'table';
+@import 'form';
+@import 'utilities';
+
+
+/**
+ * Local Code.
+ */
+
+* { box-sizing: border-box; }
+$content-max-width: 768px;
+$sidebar-min-width: 200px;
+
+.sidebar {
+  background: pink;
+  text-align: center;
+  color: #FFFFFF;
+
+  a {
+    color: #FFFFFF;
+  }
+
+  .main-nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+
+      li {
+        display: inline-block;
+
+        &.selected {
+          border-bottom: 2px solid #FFFFFF;
+        }
+      }
+    }
+  }
+}
+.content {
+  background: darken(#ffffff, 4%);
+  .jg-container {
+    background: #ffffff;
+  }
+}
+
+.jg-container {
+  padding: $padding-container;
+}
+
+
+@media (min-width: $content-max-width) {
+  .sidebar,
+  .content {
+    .jg-container {
+      margin: 0 auto 0;
+      max-width: $max-width-container + $width-gap-double;
+      outline: 0;
+      padding: $padding-container-desktop;
+    }
+  }
+}
+
+@media (min-width: $content-max-width + $sidebar-min-width) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+  }
+  .content {
+    max-width: none;
+    width: 70%;
+    .jg-container {
+      float: right;
+    }
+  }
+}

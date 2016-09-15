@@ -1,6 +1,6 @@
 ---
 title: About
-published: false
+published: true
 route: about
 ---
 
