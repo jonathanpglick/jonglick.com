@@ -1,4 +1,4 @@
-<article class="post type-post post-excerpt format-standard hentry {% if page.media.images %}has-post-thumbnail{% endif %}">
+<article class="Post {% if page.media.images %}has-post-thumbnail{% endif %}">
 
 {% if page.media.images %}
 <div class="post-thumbnail">
@@ -6,32 +6,32 @@
 </div>
 {% endif %}
 
-    <header class="entry-header">
+    <header class="Post-header">
         {% if page.header.link %}
-            <h2 class="entry-title">
+            <h2 class="Post-title">
                 {% if page.header.continue_link is not sameas(false) %}
                     <a href="{{ page.url }}"></a>
                 {% endif %}
                 <a href="{{ page.header.link }}">{{ page.title }}</a>
             </h2>
             {% else %}
-            <h2 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+            <h2 class="Post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
         {% endif %}
     </header>
 
-    <div class="entry-content">
+    <div class="Post-content">
             {{ page.content }}
             {% if not truncate %}
             {% set show_prev_next = true %}
             {% endif %}
     </div>
 
-    <footer class="entry-footer">
-        <span class="posted-on">
+    <footer class="Post-footer">
+        <span class="Post-footer-date">
             <time class="entry-date published updated" datetime="{{ page.date|date(config.system.pages.dateformat.short) }}">{{ page.date|date(config.system.pages.dateformat.default) }}</time> 
         </span>
         {% if page.header.author %}
-            <span class="byline">
+            <span class="Post-footer-byline">
                 <span class="author vcard">
                     {{ page.header.author }}
                 </span>

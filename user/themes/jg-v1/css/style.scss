@@ -1,89 +1,170 @@
 /**
  * Mobi.css imports.
  */
-@import 'custom';
 @import 'variables';
 @import 'mixins';
 
 @import 'resets';
 
-@import 'layout';
+/*@import 'layout';*/
 @import 'table';
 @import 'form';
 @import 'utilities';
 
 
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif|Raleway';
+
 /**
  * Local Code.
  */
 
-* { box-sizing: border-box; }
-$content-max-width: 768px;
-$sidebar-min-width: 200px;
+/**
+ * Variables.
+ */
 
-.sidebar {
-  background: pink;
+$sidebar-width-tablet: 250px;
+$breakpoint-tablet: 768px;
+$sidebar-width-desktop: 300px;
+$breakpoint-desktop: 992px;
+$padding-sm: 20px;
+$padding-md: 35px;
+$padding-lg: 50px;
+$type-heading: 'Raleway', sans-serif;
+$type-default: 'Droid Serif', serif;
+
+
+/**
+ * Mixins.
+ */
+
+@mixin pattern-microbial($background: #bbbbbb, $foreground: #cbcbcb) {
+  background:
+    radial-gradient(circle at 0% 50%, $background 9px, $foreground 10px, $background 11px) 0px 10px,
+    radial-gradient(at 100% 100%, $background 9px, $foreground 10px, $background 11px), $foreground;
+  background-size: 20px 20px;
+}
+
+@mixin tablet() {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+/**
+ * Styles.
+ */
+
+body {
+  font-family: $type-default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $type-heading;
+}
+pre {
+  max-height: none;
+  padding: 0;
+  margin: 0 -1*$padding-sm 1px;
+
+  code.hljs {
+    padding: $padding-sm;
+  }
+
+  @include tablet {
+    margin-left: -1*$padding-md;
+    margin-right: -1*$padding-md;
+    code.hljs {
+      padding: $padding-md;
+    }
+  }
+  @include desktop {
+    margin-left: -1*$padding-lg;
+    margin-right: -1*$padding-lg;
+    code.hljs {
+      padding: $padding-md $padding-lg;
+    }
+  }
+}
+
+* { box-sizing: border-box; }
+
+.Layout-sidebar {
+  @include pattern-microbial();
   text-align: center;
   color: #FFFFFF;
+  padding: $padding-sm;
 
   a {
     color: #FFFFFF;
   }
 
-  .main-nav {
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      text-align: center;
-
-      li {
-        display: inline-block;
-
-        &.selected {
-          border-bottom: 2px solid #FFFFFF;
-        }
-      }
-    }
-  }
-}
-.content {
-  background: darken(#ffffff, 4%);
-  .jg-container {
-    background: #ffffff;
-  }
-}
-
-.jg-container {
-  padding: $padding-container;
-}
-
-
-@media (min-width: $content-max-width) {
-  .sidebar,
-  .content {
-    .jg-container {
-      margin: 0 auto 0;
-      max-width: $max-width-container + $width-gap-double;
-      outline: 0;
-      padding: $padding-container-desktop;
-    }
-  }
-}
-
-@media (min-width: $content-max-width + $sidebar-min-width) {
-  .sidebar {
+  @include tablet {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 30%;
+    width: $sidebar-width-tablet;
+    padding: $padding-md;
   }
-  .content {
-    max-width: none;
-    width: 70%;
-    .jg-container {
-      float: right;
+
+  @include desktop {
+    width: $sidebar-width-desktop;
+    padding: $padding-lg;
+  }
+}
+
+.Layout-content {
+  padding: $padding-sm;
+  overflow: auto;
+
+  @include tablet {
+    margin-right: $sidebar-width-tablet;
+    padding: $padding-md;
+  }
+
+  @include desktop {
+    margin-right: $sidebar-width-desktop;
+    padding: $padding-lg;
+  }
+}
+
+.Nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    li {
+      display: inline-block;
+
+      &.selected {
+        border-bottom: 2px solid #FFFFFF;
+      }
     }
   }
 }
+
+
+.Post {}
+.Post-header {}
+.Post-title {
+  margin-top: 0;
+  margin-bottom: $padding-md;
+  font-size: 3.2rem;
+}
+.Post-content {
+  > * + * {
+    margin-top: $padding-sm;
+  }
+  h2 {
+    margin-top: $padding-md;
+  }
+}
+.Post-footer {}

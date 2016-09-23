@@ -2,6 +2,7 @@
 /**
  * Mobi.css imports.
  */
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif|Raleway';
 html {
   box-sizing: border-box; }
 
@@ -196,82 +197,7 @@ html [type=button],
 [hidden] {
   display: none; }
 
-.container {
-  background-color: #fff;
-  max-width: 738px;
-  min-width: 320px;
-  outline: 15px solid #fff;
-  overflow: hidden;
-  padding: 0 15px 15px;
-  width: 100%; }
-
-@media (min-width: 1041px) {
-  .container {
-    max-width: 768px;
-    outline: 0;
-    padding: 0 30px 15px; } }
-
-.row {
-  display: flex;
-  flex-flow: row nowrap;
-  margin-left: -15px;
-  margin-right: -15px; }
-
-.col,
-.col-1-2,
-.col-1-3,
-.col-2-3,
-.col-1-4,
-.col-3-4 {
-  padding-left: 7px;
-  padding-right: 7px; }
-  .col:first-child,
-  .col-1-2:first-child,
-  .col-1-3:first-child,
-  .col-2-3:first-child,
-  .col-1-4:first-child,
-  .col-3-4:first-child {
-    padding-left: 15px; }
-  .col:last-child,
-  .col-1-2:last-child,
-  .col-1-3:last-child,
-  .col-2-3:last-child,
-  .col-1-4:last-child,
-  .col-3-4:last-child {
-    padding-right: 15px; }
-
-.col {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%; }
-
-.col-1-2,
-.col-1-3,
-.col-2-3,
-.col-1-4,
-.col-3-4 {
-  flex-shrink: 0; }
-
-.col-1-2 {
-  flex-basis: 50%;
-  max-width: 50%; }
-
-.col-1-3 {
-  flex-basis: 33.33%;
-  max-width: 33.33%; }
-
-.col-2-3 {
-  flex-basis: 66.67%;
-  max-width: 66.67%; }
-
-.col-1-4 {
-  flex-basis: 25%;
-  max-width: 25%; }
-
-.col-3-4 {
-  flex-basis: 75%;
-  max-width: 75%; }
-
+/*@import 'layout';*/
 .table {
   background-color: #fff;
   border: 0;
@@ -497,50 +423,93 @@ html [type=button],
 /**
  * Local Code.
  */
+/**
+ * Variables.
+ */
+/**
+ * Mixins.
+ */
+/**
+ * Styles.
+ */
+body {
+  font-family: "Droid Serif", serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif; }
+
+pre {
+  max-height: none;
+  padding: 0;
+  margin: 0 -20px 1px; }
+  pre code.hljs {
+    padding: 20px; }
+  @media (min-width: 768px) {
+    pre {
+      margin-left: -35px;
+      margin-right: -35px; }
+      pre code.hljs {
+        padding: 35px; } }
+  @media (min-width: 992px) {
+    pre {
+      margin-left: -50px;
+      margin-right: -50px; }
+      pre code.hljs {
+        padding: 35px 50px; } }
+
 * {
   box-sizing: border-box; }
 
-.sidebar {
-  background: pink;
+.Layout-sidebar {
+  background: radial-gradient(circle at 0% 50%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px) 0px 10px, radial-gradient(at 100% 100%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px), #cbcbcb;
+  background-size: 20px 20px;
   text-align: center;
-  color: #FFFFFF; }
-  .sidebar a {
+  color: #FFFFFF;
+  padding: 20px; }
+  .Layout-sidebar a {
     color: #FFFFFF; }
-  .sidebar .main-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center; }
-    .sidebar .main-nav ul li {
-      display: inline-block; }
-      .sidebar .main-nav ul li.selected {
-        border-bottom: 2px solid #FFFFFF; }
+  @media (min-width: 768px) {
+    .Layout-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 250px;
+      padding: 35px; } }
+  @media (min-width: 992px) {
+    .Layout-sidebar {
+      width: 300px;
+      padding: 50px; } }
 
-.content {
-  background: whitesmoke; }
-  .content .jg-container {
-    background: #ffffff; }
+.Layout-content {
+  padding: 20px;
+  overflow: auto; }
+  @media (min-width: 768px) {
+    .Layout-content {
+      margin-right: 250px;
+      padding: 35px; } }
+  @media (min-width: 992px) {
+    .Layout-content {
+      margin-right: 300px;
+      padding: 50px; } }
 
-.jg-container {
-  padding: 0 15px 15px; }
+.Nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+  .Nav ul li {
+    display: inline-block; }
+    .Nav ul li.selected {
+      border-bottom: 2px solid #FFFFFF; }
 
-@media (min-width: 768px) {
-  .sidebar .jg-container,
-  .content .jg-container {
-    margin: 0 auto 0;
-    max-width: 768px;
-    outline: 0;
-    padding: 0 30px 15px; } }
+.Post-title {
+  margin-top: 0;
+  margin-bottom: 35px;
+  font-size: 3.2rem; }
 
-@media (min-width: 968px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 30%; }
-  .content {
-    max-width: none;
-    width: 70%; }
-    .content .jg-container {
-      float: right; } }
+.Post-content > * + * {
+  margin-top: 20px; }
+
+.Post-content h2 {
+  margin-top: 35px; }

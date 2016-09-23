@@ -14,36 +14,29 @@
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
+        {% do assets.addCss('theme://highlight/styles/solarized-dark.css', 98) %}
         {% do assets.addCss('theme://css/style.css', 98) %}
     {% endblock %}
     {{ assets.css() }}
 
-    {% block javascripts %}
-        {% do assets.addJs('jquery', 100) %}
-    {% endblock %}
-    {{ assets.js() }}
-
 {% endblock head%}
 </head>
-<body id="top" class="{{ page.header.body_classes }}">
+<body id="top" class="Layout {{ page.header.body_classes }}">
 
 {% block sidebar %}
-    <div class="sidebar">
-      <div class="jg-container">
+    <div class="Layout-sidebar">
         <a class="" href="{{ base_url == '' ? '/' : base_url }}">
             {{ config.site.title }}
         </a>
         {% block header_navigation %}
-        <nav class="main-nav">
+        <nav class="Nav">
             {% include 'partials/navigation.html.twig' %}
         </nav>
         {% endblock %}
-      </div>
     </div>
 {% endblock %}
 
-<div class="content">
-  <div class="jg-container">
+<div class="Layout-content">
   {% block body %}
       <section id="body">
           <div class="">
@@ -53,13 +46,20 @@
   {% endblock %}
 
   {% block footer %}
-      <div class="">
+      <div class="Layout-footer">
           <div class="">
           </div>
       </div>
   {% endblock %}
-  </div>
 </div>
+
+{% block javascripts %}
+    {% do assets.addJs('jquery', 100) %}
+    {% do assets.addJs('theme://highlight/highlight.pack.js', 100) %}
+{% endblock %}
+{{ assets.js() }}
+
+<script>hljs.initHighlightingOnLoad(); </script>
 
 {% block bottom %}
     {{ assets.js('bottom') }}
