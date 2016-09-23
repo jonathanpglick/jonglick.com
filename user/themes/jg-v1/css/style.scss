@@ -67,13 +67,23 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $type-heading;
 }
+
+code.hljs {
+  display: inline;
+  padding: 0.25em 0.5em;
+  border-radius: 8px;
+  white-space: nowrap;
+}
 pre {
   max-height: none;
   padding: 0;
   margin: 0 -1*$padding-sm 1px;
 
   code.hljs {
+    display: block;
     padding: $padding-sm;
+    border-radius: 0;
+    white-space: pre;
   }
 
   @include tablet {

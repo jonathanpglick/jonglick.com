@@ -59,7 +59,12 @@
 {% endblock %}
 {{ assets.js() }}
 
-<script>hljs.initHighlightingOnLoad(); </script>
+<script>
+  hljs.initHighlightingOnLoad();
+  $('p code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+</script>
 
 {% block bottom %}
     {{ assets.js('bottom') }}
