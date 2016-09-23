@@ -68,6 +68,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $type-heading;
 }
 
+h2 {
+  font-size: 4rem;
+  line-height: 4.5rem;
+}
+
 code.hljs {
   display: inline;
   padding: 0.25em 0.5em;
@@ -78,26 +83,49 @@ pre {
   max-height: none;
   padding: 0;
   margin: 0 -1*$padding-sm 1px;
+  position: relative;
 
   code.hljs {
     display: block;
     padding: $padding-sm;
+    padding-left: $padding-sm*2;
     border-radius: 0;
     white-space: pre;
+
+    &.hljs-line-numbers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      text-align: right;
+      color: rgb(88, 110, 117);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: rgb(0, 52, 65);
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+
   }
 
   @include tablet {
     margin-left: -1*$padding-md;
     margin-right: -1*$padding-md;
     code.hljs {
-      padding: $padding-md;
+      padding-left: $padding-md;
+      padding-right: $padding-md;
     }
   }
   @include desktop {
     margin-left: -1*$padding-lg;
     margin-right: -1*$padding-lg;
     code.hljs {
-      padding: $padding-md $padding-lg;
+      padding-left: $padding-lg;
+      padding-right: $padding-lg;
     }
   }
 }
@@ -108,7 +136,6 @@ pre {
   @include pattern-microbial();
   text-align: center;
   color: #FFFFFF;
-  padding: $padding-sm;
 
   a {
     color: #FFFFFF;
@@ -120,13 +147,21 @@ pre {
     right: 0;
     bottom: 0;
     width: $sidebar-width-tablet;
-    padding: $padding-md;
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
   }
 
   @include desktop {
     width: $sidebar-width-desktop;
-    padding: $padding-lg;
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
   }
+
+}
+
+.Identity {
+  display: block;
+  padding: $padding-md;
 }
 
 .Layout-content {
@@ -150,24 +185,56 @@ pre {
     padding: 0;
     list-style: none;
     text-align: center;
+    display: flex;
+    flex-direction: row;
 
     li {
-      display: inline-block;
+      display: block;
+      flex-grow: 1;
 
-      &.selected {
-        border-bottom: 2px solid #FFFFFF;
+      &:hover {
+        background: rgba(255, 255, 255, 0.125);
       }
+      &.selected {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      a {
+        display: block;
+        padding: $padding-sm / 2;
+        text-decoration: none;
+      }
+    }
+
+    @include tablet {
+      display: block;
     }
   }
 }
 
 
 .Post {}
-.Post-header {}
+.Post-header {
+  margin: -$padding-sm;
+  margin-bottom: 0;
+  padding: $padding-sm;
+  @include tablet {
+    margin: -$padding-md;
+    margin-bottom: 0;
+    padding: $padding-md;
+  }
+  @include desktop {
+    margin: -$padding-lg;
+    margin-bottom: 0;
+    padding: $padding-lg;
+  }
+  background-color: #002b36;
+}
 .Post-title {
   margin-top: 0;
-  margin-bottom: $padding-md;
-  font-size: 3.2rem;
+  margin-bottom: 000000000;
+  font-size: 4.5rem;
+  line-height: 5rem;
 }
 .Post-content {
   > * + * {

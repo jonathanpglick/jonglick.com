@@ -8,14 +8,14 @@
 
     <header class="Post-header">
         {% if page.header.link %}
-            <h2 class="Post-title">
+            <h1 class="Post-title">
                 {% if page.header.continue_link is not sameas(false) %}
                     <a href="{{ page.url }}"></a>
                 {% endif %}
                 <a href="{{ page.header.link }}">{{ page.title }}</a>
-            </h2>
+            </h1>
             {% else %}
-            <h2 class="Post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+            <h1 class="Post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% endif %}
     </header>
 

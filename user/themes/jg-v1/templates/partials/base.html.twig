@@ -25,7 +25,7 @@
 
 {% block sidebar %}
     <div class="Layout-sidebar">
-        <a class="" href="{{ base_url == '' ? '/' : base_url }}">
+        <a class="Identity" href="{{ base_url == '' ? '/' : base_url }}">
             {{ config.site.title }}
         </a>
         {% block header_navigation %}
@@ -56,11 +56,13 @@
 {% block javascripts %}
     {% do assets.addJs('jquery', 100) %}
     {% do assets.addJs('theme://highlight/highlight.pack.js', 100) %}
+    {% do assets.addJs('theme://highlight/highlightjs-line-numbers.min.js', 100) %}
 {% endblock %}
 {{ assets.js() }}
 
 <script>
   hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
   $('p code').each(function(i, block) {
     hljs.highlightBlock(block);
   });

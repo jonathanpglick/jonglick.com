@@ -438,6 +438,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif; }
 
+h2 {
+  font-size: 4rem;
+  line-height: 4.5rem; }
+
 code.hljs {
   display: inline;
   padding: 0.25em 0.5em;
@@ -447,24 +451,44 @@ code.hljs {
 pre {
   max-height: none;
   padding: 0;
-  margin: 0 -20px 1px; }
+  margin: 0 -20px 1px;
+  position: relative; }
   pre code.hljs {
     display: block;
     padding: 20px;
+    padding-left: 40px;
     border-radius: 0;
     white-space: pre; }
+    pre code.hljs.hljs-line-numbers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      text-align: right;
+      color: #586e75;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: #003441;
+      padding-left: 0.5em;
+      padding-right: 0.5em; }
   @media (min-width: 768px) {
     pre {
       margin-left: -35px;
       margin-right: -35px; }
       pre code.hljs {
-        padding: 35px; } }
+        padding-left: 35px;
+        padding-right: 35px; } }
   @media (min-width: 992px) {
     pre {
       margin-left: -50px;
       margin-right: -50px; }
       pre code.hljs {
-        padding: 35px 50px; } }
+        padding-left: 50px;
+        padding-right: 50px; } }
 
 * {
   box-sizing: border-box; }
@@ -473,8 +497,7 @@ pre {
   background: radial-gradient(circle at 0% 50%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px) 0px 10px, radial-gradient(at 100% 100%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px), #cbcbcb;
   background-size: 20px 20px;
   text-align: center;
-  color: #FFFFFF;
-  padding: 20px; }
+  color: #FFFFFF; }
   .Layout-sidebar a {
     color: #FFFFFF; }
   @media (min-width: 768px) {
@@ -484,11 +507,17 @@ pre {
       right: 0;
       bottom: 0;
       width: 250px;
-      padding: 35px; } }
+      padding-top: 35px;
+      padding-bottom: 35px; } }
   @media (min-width: 992px) {
     .Layout-sidebar {
       width: 300px;
-      padding: 50px; } }
+      padding-top: 50px;
+      padding-bottom: 50px; } }
+
+.Identity {
+  display: block;
+  padding: 35px; }
 
 .Layout-content {
   padding: 20px;
@@ -506,16 +535,45 @@ pre {
   margin: 0;
   padding: 0;
   list-style: none;
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  flex-direction: row; }
   .Nav ul li {
-    display: inline-block; }
+    display: block;
+    flex-grow: 1; }
+    .Nav ul li:hover {
+      background: rgba(255, 255, 255, 0.125); }
     .Nav ul li.selected {
-      border-bottom: 2px solid #FFFFFF; }
+      background: rgba(255, 255, 255, 0.25); }
+    .Nav ul li a {
+      display: block;
+      padding: 10px;
+      text-decoration: none; }
+  @media (min-width: 768px) {
+    .Nav ul {
+      display: block; } }
+
+.Post-header {
+  margin: -20px;
+  margin-bottom: 0;
+  padding: 20px;
+  background-color: #002b36; }
+  @media (min-width: 768px) {
+    .Post-header {
+      margin: -35px;
+      margin-bottom: 0;
+      padding: 35px; } }
+  @media (min-width: 992px) {
+    .Post-header {
+      margin: -50px;
+      margin-bottom: 0;
+      padding: 50px; } }
 
 .Post-title {
   margin-top: 0;
-  margin-bottom: 35px;
-  font-size: 3.2rem; }
+  margin-bottom: 000000000;
+  font-size: 4.5rem;
+  line-height: 5rem; }
 
 .Post-content > * + * {
   margin-top: 20px; }
