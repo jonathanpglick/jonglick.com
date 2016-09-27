@@ -31,6 +31,9 @@ $padding-md: 35px;
 $padding-lg: 50px;
 $type-heading: 'Raleway', sans-serif;
 $type-default: 'Droid Serif', serif;
+$color-gray-light: rgb(88, 110, 117);
+$color-gray-mid: rgb(0, 52, 65);
+$color-solarized-bg: #002b36;
 
 
 /**
@@ -38,10 +41,44 @@ $type-default: 'Droid Serif', serif;
  */
 
 @mixin pattern-microbial($background: #bbbbbb, $foreground: #cbcbcb) {
+  $size: 80px;
+  $spacing: -5px;
   background:
-    radial-gradient(circle at 0% 50%, $background 9px, $foreground 10px, $background 11px) 0px 10px,
-    radial-gradient(at 100% 100%, $background 9px, $foreground 10px, $background 11px), $foreground;
-  background-size: 20px 20px;
+    radial-gradient(circle, transparent $size - 1, $foreground $size, transparent $size + 1) 0px 0px,
+    radial-gradient(circle, transparent $size - 1, $foreground $size, transparent $size + 1) $size $size,
+    $background
+    ;
+  background-size: $size*2+$spacing $size*2+$spacing;
+}
+
+@mixin pattern-diamond($color: #000, $bg-color: transparent, $size: 80px, $spacing: -5px, $offset: 0) {
+  background:
+    radial-gradient(circle, transparent $size - 1, $color $size, transparent $size + 1) $offset $offset,
+    $bg-color
+    ;
+  background-size: $size*2+$spacing $size*2+$spacing;
+}
+
+@mixin pattern-cube() {
+  background-color:#556;
+  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
+    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+@mixin pattern-argyle-1($stripe-color) {
+  /*background-color: #6d695c;*/
+  background-image:
+    /*repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),*/
+    repeating-linear-gradient(60deg, rgba($stripe-color, 0.1), rgba($stripe-color, 0.1) 1px, transparent 1px, transparent 60px)
+    ;
+  background-size: 70px 120px;
+  -webkit-backface-visibility: hidden;
 }
 
 @mixin tablet() {
@@ -56,12 +93,29 @@ $type-default: 'Droid Serif', serif;
   }
 }
 
+@mixin content-padding() {
+  padding: $padding-sm;
+  @include tablet { padding: $padding-md; }
+  @include desktop { padding: $padding-lg; }
+}
+
+@mixin negative-content-padding() {
+  margin: -$padding-sm;
+  @include tablet { margin: -$padding-md; }
+  @include desktop { margin: -$padding-lg; }
+}
+
 /**
  * Styles.
  */
 
+html {
+}
 body {
   font-family: $type-default;
+  background-color: $color-solarized-bg;
+}
+.Layout-bg-2 {
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -98,14 +152,14 @@ pre {
       left: 0;
       bottom: 0;
       text-align: right;
-      color: rgb(88, 110, 117);
+      color: $color-gray-light;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      background-color: rgb(0, 52, 65);
+      background-color: $color-gray-mid;
       padding-left: 0.5em;
       padding-right: 0.5em;
     }
@@ -132,8 +186,37 @@ pre {
 
 * { box-sizing: border-box; }
 
+body {
+}
+
+.Layout {
+  position: relative;
+  perspective: 1px;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include pattern-diamond($color-gray-mid);
+    z-index: 1;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include pattern-diamond($color-gray-mid, $offset: 80px);
+    z-index: 2;
+  }
+}
+
 .Layout-sidebar {
-  @include pattern-microbial();
+  position: relative;
+  z-index: 10;
   text-align: center;
   color: #FFFFFF;
 
@@ -165,17 +248,14 @@ pre {
 }
 
 .Layout-content {
-  padding: $padding-sm;
-  overflow: auto;
-
+  position: relative;
+  z-index: 10;
+  z-index: 10;
   @include tablet {
     margin-right: $sidebar-width-tablet;
-    padding: $padding-md;
   }
-
   @include desktop {
     margin-right: $sidebar-width-desktop;
-    padding: $padding-lg;
   }
 }
 
@@ -213,30 +293,25 @@ pre {
 }
 
 
-.Post {}
-.Post-header {
-  margin: -$padding-sm;
-  margin-bottom: 0;
-  padding: $padding-sm;
-  @include tablet {
-    margin: -$padding-md;
-    margin-bottom: 0;
-    padding: $padding-md;
-  }
-  @include desktop {
-    margin: -$padding-lg;
-    margin-bottom: 0;
-    padding: $padding-lg;
-  }
-  background-color: #002b36;
+.Page {}
+.Page-header {
+  @include content-padding();
 }
-.Post-title {
+.Page-title {
   margin-top: 0;
   margin-bottom: 000000000;
   font-size: 4.5rem;
   line-height: 5rem;
+  color: #FFFFFF;
+  a {
+    color: #FFFFFF;
+  }
 }
-.Post-content {
+.Page-content {
+  background: #FFFFFF;
+  overflow: auto;
+  @include content-padding();
+
   > * + * {
     margin-top: $padding-sm;
   }
@@ -244,4 +319,6 @@ pre {
     margin-top: $padding-md;
   }
 }
-.Post-footer {}
+.Page-footer {
+  @include content-padding();
+}

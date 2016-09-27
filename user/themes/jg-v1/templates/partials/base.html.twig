@@ -21,55 +21,55 @@
 
 {% endblock head%}
 </head>
-<body id="top" class="Layout {{ page.header.body_classes }}">
+<body id="top" class="{{ page.header.body_classes }}">
 
-{% block sidebar %}
-    <div class="Layout-sidebar">
-        <a class="Identity" href="{{ base_url == '' ? '/' : base_url }}">
-            {{ config.site.title }}
-        </a>
-        {% block header_navigation %}
-        <nav class="Nav">
-            {% include 'partials/navigation.html.twig' %}
-        </nav>
-        {% endblock %}
-    </div>
-{% endblock %}
-
-<div class="Layout-content">
-  {% block body %}
-      <section id="body">
-          <div class="">
-          {% block content %}{% endblock %}
-          </div>
-      </section>
-  {% endblock %}
-
-  {% block footer %}
-      <div class="Layout-footer">
-          <div class="">
-          </div>
+<div class="Layout">
+  {% block sidebar %}
+      <div class="Layout-sidebar">
+          <a class="Identity" href="{{ base_url == '' ? '/' : base_url }}">
+              {{ config.site.title }}
+          </a>
+          {% block header_navigation %}
+          <nav class="Nav">
+              {% include 'partials/navigation.html.twig' %}
+          </nav>
+          {% endblock %}
       </div>
   {% endblock %}
+
+  <div class="Layout-content">
+    {% block body %}
+      <div class="Content">
+        {% block content %}{% endblock %}
+      </div>
+    {% endblock %}
+
+    {% block footer %}
+        <div class="Layout-footer">
+            <div class="">
+            </div>
+        </div>
+    {% endblock %}
+  </div>
+
+  {% block javascripts %}
+      {% do assets.addJs('jquery', 100) %}
+      {% do assets.addJs('theme://highlight/highlight.pack.js', 100) %}
+      {% do assets.addJs('theme://highlight/highlightjs-line-numbers.min.js', 100) %}
+  {% endblock %}
+  {{ assets.js() }}
+
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    $('p code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  </script>
+
+  {% block bottom %}
+      {{ assets.js('bottom') }}
+  {% endblock %}
 </div>
-
-{% block javascripts %}
-    {% do assets.addJs('jquery', 100) %}
-    {% do assets.addJs('theme://highlight/highlight.pack.js', 100) %}
-    {% do assets.addJs('theme://highlight/highlightjs-line-numbers.min.js', 100) %}
-{% endblock %}
-{{ assets.js() }}
-
-<script>
-  hljs.initHighlightingOnLoad();
-  hljs.initLineNumbersOnLoad();
-  $('p code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-</script>
-
-{% block bottom %}
-    {{ assets.js('bottom') }}
-{% endblock %}
 
 </body>

@@ -433,7 +433,8 @@ html [type=button],
  * Styles.
  */
 body {
-  font-family: "Droid Serif", serif; }
+  font-family: "Droid Serif", serif;
+  background-color: #002b36; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif; }
@@ -493,9 +494,33 @@ pre {
 * {
   box-sizing: border-box; }
 
+.Layout {
+  position: relative;
+  perspective: 1px; }
+  .Layout:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 79px, #003441 80px, transparent 81px) 0 0, transparent;
+    background-size: 155px 155px;
+    z-index: 1; }
+  .Layout:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 79px, #003441 80px, transparent 81px) 80px 80px, transparent;
+    background-size: 155px 155px;
+    z-index: 2; }
+
 .Layout-sidebar {
-  background: radial-gradient(circle at 0% 50%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px) 0px 10px, radial-gradient(at 100% 100%, #bbbbbb 9px, #cbcbcb 10px, #bbbbbb 11px), #cbcbcb;
-  background-size: 20px 20px;
+  position: relative;
+  z-index: 10;
   text-align: center;
   color: #FFFFFF; }
   .Layout-sidebar a {
@@ -520,16 +545,15 @@ pre {
   padding: 35px; }
 
 .Layout-content {
-  padding: 20px;
-  overflow: auto; }
+  position: relative;
+  z-index: 10;
+  z-index: 10; }
   @media (min-width: 768px) {
     .Layout-content {
-      margin-right: 250px;
-      padding: 35px; } }
+      margin-right: 250px; } }
   @media (min-width: 992px) {
     .Layout-content {
-      margin-right: 300px;
-      padding: 50px; } }
+      margin-right: 300px; } }
 
 .Nav ul {
   margin: 0;
@@ -553,30 +577,44 @@ pre {
     .Nav ul {
       display: block; } }
 
-.Post-header {
-  margin: -20px;
-  margin-bottom: 0;
-  padding: 20px;
-  background-color: #002b36; }
+.Page-header {
+  padding: 20px; }
   @media (min-width: 768px) {
-    .Post-header {
-      margin: -35px;
-      margin-bottom: 0;
+    .Page-header {
       padding: 35px; } }
   @media (min-width: 992px) {
-    .Post-header {
-      margin: -50px;
-      margin-bottom: 0;
+    .Page-header {
       padding: 50px; } }
 
-.Post-title {
+.Page-title {
   margin-top: 0;
   margin-bottom: 000000000;
   font-size: 4.5rem;
-  line-height: 5rem; }
+  line-height: 5rem;
+  color: #FFFFFF; }
+  .Page-title a {
+    color: #FFFFFF; }
 
-.Post-content > * + * {
-  margin-top: 20px; }
+.Page-content {
+  background: #FFFFFF;
+  overflow: auto;
+  padding: 20px; }
+  @media (min-width: 768px) {
+    .Page-content {
+      padding: 35px; } }
+  @media (min-width: 992px) {
+    .Page-content {
+      padding: 50px; } }
+  .Page-content > * + * {
+    margin-top: 20px; }
+  .Page-content h2 {
+    margin-top: 35px; }
 
-.Post-content h2 {
-  margin-top: 35px; }
+.Page-footer {
+  padding: 20px; }
+  @media (min-width: 768px) {
+    .Page-footer {
+      padding: 35px; } }
+  @media (min-width: 992px) {
+    .Page-footer {
+      padding: 50px; } }

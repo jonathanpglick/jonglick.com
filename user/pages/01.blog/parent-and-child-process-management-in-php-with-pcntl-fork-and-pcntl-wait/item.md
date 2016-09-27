@@ -16,7 +16,7 @@ So, you need a php process that can launch other processes (background tasks, if
 
 PCNTL uses a "forking" design similar to all unix processes: every new process is a clone of its parent process. The [Basic usage example](http://www.php.net/manual/en/pcntl.example.php) on PHP.net is, indeed, complete but I found it hard to decypher at first. Overall, there were two parts of the implementation I had trouble grokking.
 
-## Control flow of processes through the PHP document
+## Control flow of processes through the PHP file
 
 The control flow hinges on the [`pcntl_fork()`](http://www.php.net/manual/en/function.pcntl-fork.php) function. It creates a copy of the parent process where execution is at the same place in both processes.  Its return value can mean 3 different things and serves as the identifier for which process the current execution is in.
 

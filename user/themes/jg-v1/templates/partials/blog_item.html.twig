@@ -1,4 +1,4 @@
-<article class="Post {% if page.media.images %}has-post-thumbnail{% endif %}">
+<article class="Page {% if page.media.images %}has-post-thumbnail{% endif %}">
 
 {% if page.media.images %}
 <div class="post-thumbnail">
@@ -6,32 +6,32 @@
 </div>
 {% endif %}
 
-    <header class="Post-header">
+    <header class="Page-header">
         {% if page.header.link %}
-            <h1 class="Post-title">
+            <h1 class="Page-title">
                 {% if page.header.continue_link is not sameas(false) %}
                     <a href="{{ page.url }}"></a>
                 {% endif %}
                 <a href="{{ page.header.link }}">{{ page.title }}</a>
             </h1>
             {% else %}
-            <h1 class="Post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+            <h1 class="Page-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% endif %}
     </header>
 
-    <div class="Post-content">
+    <div class="Page-content">
             {{ page.content }}
             {% if not truncate %}
             {% set show_prev_next = true %}
             {% endif %}
     </div>
 
-    <footer class="Post-footer">
-        <span class="Post-footer-date">
+    <footer class="Page-footer">
+        <span class="Page-footer-date">
             <time class="entry-date published updated" datetime="{{ page.date|date(config.system.pages.dateformat.short) }}">{{ page.date|date(config.system.pages.dateformat.default) }}</time> 
         </span>
         {% if page.header.author %}
-            <span class="Post-footer-byline">
+            <span class="Page-footer-byline">
                 <span class="author vcard">
                     {{ page.header.author }}
                 </span>
@@ -60,7 +60,7 @@
 {% endif %}
 
 <nav class="navigation post-navigation" role="navigation">
-    <h2 class="screen-reader-text">Post navigation</h2>
+    <h2 class="screen-reader-text">Page navigation</h2>
     <div class="nav-links">
         {% if not page.isLast %}
             <div class="nav-previous" {% if page.prevSibling.media.images %}style="background-image: url({{ page.prevSibling.media.images|first.cropZoom(1038,437).url }}");{% endif %}>
