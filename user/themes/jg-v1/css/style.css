@@ -452,7 +452,7 @@ code.hljs {
 pre {
   max-height: none;
   padding: 0;
-  margin: 0 -20px 1px;
+  margin: 15px -20px 1px;
   position: relative; }
   pre code.hljs {
     display: block;
@@ -495,8 +495,7 @@ pre {
   box-sizing: border-box; }
 
 .Layout {
-  position: relative;
-  perspective: 1px; }
+  position: relative; }
   .Layout:before {
     content: '';
     position: absolute;
@@ -514,7 +513,7 @@ pre {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle, transparent 79px, #003441 80px, transparent 81px) 80px 80px, transparent;
+    background: radial-gradient(circle, transparent 79px, #00303c 80px, transparent 81px) 80px 80px, transparent;
     background-size: 155px 155px;
     z-index: 2; }
 
@@ -555,6 +554,11 @@ pre {
     .Layout-content {
       margin-right: 300px; } }
 
+.u-content-container {
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .Nav ul {
   margin: 0;
   padding: 0;
@@ -578,43 +582,47 @@ pre {
       display: block; } }
 
 .Page-header {
-  padding: 20px; }
+  padding: 40px 20px; }
   @media (min-width: 768px) {
     .Page-header {
-      padding: 35px; } }
+      padding: 70px 35px; } }
   @media (min-width: 992px) {
     .Page-header {
-      padding: 50px; } }
+      padding: 100px 50px; } }
 
 .Page-title {
   margin-top: 0;
-  margin-bottom: 000000000;
+  margin-bottom: 0;
   font-size: 4.5rem;
   line-height: 5rem;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  text-shadow: 0px 2px 5px #000; }
   .Page-title a {
     color: #FFFFFF; }
 
 .Page-content {
   background: #FFFFFF;
   overflow: auto;
-  padding: 20px; }
+  padding: 20px 20px; }
   @media (min-width: 768px) {
     .Page-content {
-      padding: 35px; } }
+      padding: 35px 35px; } }
   @media (min-width: 992px) {
     .Page-content {
-      padding: 50px; } }
+      padding: 50px 50px; } }
+  @media (min-width: 768px) {
+    .Page-content {
+      border-right: 4px solid #002731; } }
   .Page-content > * + * {
     margin-top: 20px; }
   .Page-content h2 {
     margin-top: 35px; }
 
 .Page-footer {
-  padding: 20px; }
+  padding: 20px 20px; }
   @media (min-width: 768px) {
     .Page-footer {
-      padding: 35px; } }
+      padding: 35px 35px; } }
   @media (min-width: 992px) {
     .Page-footer {
-      padding: 50px; } }
+      padding: 50px 50px; } }

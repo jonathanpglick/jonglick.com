@@ -93,16 +93,16 @@ $color-solarized-bg: #002b36;
   }
 }
 
-@mixin content-padding() {
-  padding: $padding-sm;
-  @include tablet { padding: $padding-md; }
-  @include desktop { padding: $padding-lg; }
+@mixin content-padding($multiplier-v: 1, $multiplier-h: 1) {
+  padding: $padding-sm*$multiplier-v $padding-sm*$multiplier-h;
+  @include tablet { padding: $padding-md*$multiplier-v $padding-md*$multiplier-h; }
+  @include desktop { padding: $padding-lg*$multiplier-v $padding-lg*$multiplier-h; }
 }
 
-@mixin negative-content-padding() {
-  margin: -$padding-sm;
-  @include tablet { margin: -$padding-md; }
-  @include desktop { margin: -$padding-lg; }
+@mixin negative-content-padding($multiplier: 1) {
+  margin: -$padding-sm*$multiplier;
+  @include tablet { margin: -$padding-md*$multiplier; }
+  @include desktop { margin: -$padding-lg*$multiplier; }
 }
 
 /**
@@ -114,8 +114,6 @@ html {
 body {
   font-family: $type-default;
   background-color: $color-solarized-bg;
-}
-.Layout-bg-2 {
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -136,7 +134,7 @@ code.hljs {
 pre {
   max-height: none;
   padding: 0;
-  margin: 0 -1*$padding-sm 1px;
+  margin: $width-gap -1*$padding-sm 1px;
   position: relative;
 
   code.hljs {
@@ -191,7 +189,7 @@ body {
 
 .Layout {
   position: relative;
-  perspective: 1px;
+
   &:before {
     content: '';
     position: absolute;
@@ -209,7 +207,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    @include pattern-diamond($color-gray-mid, $offset: 80px);
+    @include pattern-diamond(darken($color-gray-mid, 1%), $offset: 80px);
     z-index: 2;
   }
 }
@@ -259,6 +257,12 @@ body {
   }
 }
 
+.u-content-container {
+  max-width: $breakpoint-tablet;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Nav {
   ul {
     margin: 0;
@@ -295,14 +299,15 @@ body {
 
 .Page {}
 .Page-header {
-  @include content-padding();
+  @include content-padding($multiplier-v: 2);
 }
 .Page-title {
   margin-top: 0;
-  margin-bottom: 000000000;
+  margin-bottom: 0;
   font-size: 4.5rem;
   line-height: 5rem;
   color: #FFFFFF;
+  text-shadow: 0px 2px 5px #000;
   a {
     color: #FFFFFF;
   }
@@ -311,6 +316,10 @@ body {
   background: #FFFFFF;
   overflow: auto;
   @include content-padding();
+
+  @include tablet {
+    border-right: 4px solid darken($color-solarized-bg, 1%);
+  }
 
   > * + * {
     margin-top: $padding-sm;

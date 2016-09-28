@@ -53,19 +53,11 @@
   </div>
 
   {% block javascripts %}
-      {% do assets.addJs('jquery', 100) %}
       {% do assets.addJs('theme://highlight/highlight.pack.js', 100) %}
       {% do assets.addJs('theme://highlight/highlightjs-line-numbers.min.js', 100) %}
+      {% do assets.addJs('theme://js/scripts.js', 100) %}
   {% endblock %}
   {{ assets.js() }}
-
-  <script>
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-    $('p code').each(function(i, block) {
-      hljs.highlightBlock(block);
-    });
-  </script>
 
   {% block bottom %}
       {{ assets.js('bottom') }}
