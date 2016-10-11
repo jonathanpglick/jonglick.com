@@ -40,45 +40,11 @@ $color-solarized-bg: #002b36;
  * Mixins.
  */
 
-@mixin pattern-microbial($background: #bbbbbb, $foreground: #cbcbcb) {
-  $size: 80px;
-  $spacing: -5px;
-  background:
-    radial-gradient(circle, transparent $size - 1, $foreground $size, transparent $size + 1) 0px 0px,
-    radial-gradient(circle, transparent $size - 1, $foreground $size, transparent $size + 1) $size $size,
-    $background
-    ;
-  background-size: $size*2+$spacing $size*2+$spacing;
-}
-
 @mixin pattern-diamond($color: #000, $bg-color: transparent, $size: 80px, $spacing: -5px, $offset: 0) {
-  background:
-    radial-gradient(circle, transparent $size - 1, $color $size, transparent $size + 1) $offset $offset,
-    $bg-color
-    ;
+  background-image: radial-gradient(ellipse $size $size*1.1, transparent $size - 1, $color $size, transparent $size + 1);
+  background-position: $offset $offset;
+  background-color: $bg-color;
   background-size: $size*2+$spacing $size*2+$spacing;
-}
-
-@mixin pattern-cube() {
-  background-color:#556;
-  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-    linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
-    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
-  background-size:80px 140px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
-}
-
-@mixin pattern-argyle-1($stripe-color) {
-  /*background-color: #6d695c;*/
-  background-image:
-    /*repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),*/
-    repeating-linear-gradient(60deg, rgba($stripe-color, 0.1), rgba($stripe-color, 0.1) 1px, transparent 1px, transparent 60px)
-    ;
-  background-size: 70px 120px;
-  -webkit-backface-visibility: hidden;
 }
 
 @mixin tablet() {
@@ -189,27 +155,21 @@ body {
 
 .Layout {
   position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @include pattern-diamond($color-gray-mid);
-    z-index: 1;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @include pattern-diamond(darken($color-gray-mid, 1%), $offset: 80px);
-    z-index: 2;
-  }
+}
+.Layout-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.Layout-background-1 {
+  @include pattern-diamond($color-gray-mid);
+  z-index: 1;
+}
+.Layout-background-2 {
+  @include pattern-diamond(darken($color-gray-mid, 1%), $offset: 80px);
+  z-index: 2;
 }
 
 .Layout-sidebar {

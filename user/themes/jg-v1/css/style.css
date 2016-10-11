@@ -496,26 +496,27 @@ pre {
 
 .Layout {
   position: relative; }
-  .Layout:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, transparent 79px, #003441 80px, transparent 81px) 0 0, transparent;
-    background-size: 155px 155px;
-    z-index: 1; }
-  .Layout:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, transparent 79px, #00303c 80px, transparent 81px) 80px 80px, transparent;
-    background-size: 155px 155px;
-    z-index: 2; }
+
+.Layout-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.Layout-background-1 {
+  background-image: radial-gradient(ellipse 80px 88px, transparent 79px, #003441 80px, transparent 81px);
+  background-position: 0 0;
+  background-color: transparent;
+  background-size: 155px 155px;
+  z-index: 1; }
+
+.Layout-background-2 {
+  background-image: radial-gradient(ellipse 80px 88px, transparent 79px, #00303c 80px, transparent 81px);
+  background-position: 80px 80px;
+  background-color: transparent;
+  background-size: 155px 155px;
+  z-index: 2; }
 
 .Layout-sidebar {
   position: relative;
