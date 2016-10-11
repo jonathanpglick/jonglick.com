@@ -71,6 +71,14 @@ $color-solarized-bg: #002b36;
   @include desktop { margin: -$padding-lg*$multiplier; }
 }
 
+@mixin text-shadow() {
+  text-shadow: 0px 2px 5px #000;
+}
+
+@mixin box-shadow() {
+  box-shadow: 0px 2px 5px #000;
+}
+
 /**
  * Styles.
  */
@@ -202,7 +210,24 @@ body {
 
 .Identity {
   display: block;
-  padding: $padding-md;
+  padding: $padding-md 0;
+  font-family: $type-heading;
+  font-size: 4rem;
+  line-height: 4rem;
+  @include text-shadow();
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: relative;
+    bottom: -2px;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin: $padding-md/2 auto 0;
+    width: 85%;
+    box-shadow: 0px 2px 1px #000;
+  }
 }
 
 .Layout-content {
@@ -267,7 +292,7 @@ body {
   font-size: 4.5rem;
   line-height: 5rem;
   color: #FFFFFF;
-  text-shadow: 0px 2px 5px #000;
+  @include text-shadow();
   a {
     color: #FFFFFF;
   }
