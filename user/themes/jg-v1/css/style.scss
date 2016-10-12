@@ -86,6 +86,7 @@ $color-solarized-bg: #002b36;
 html {
 }
 body {
+  font-size: 1.6rem;
   font-family: $type-default;
   background-color: $color-solarized-bg;
 }
@@ -176,7 +177,7 @@ body {
   z-index: 1;
 }
 .Layout-background-2 {
-  @include pattern-diamond(darken($color-gray-mid, 1%), $offset: 80px);
+  @include pattern-diamond(darken($color-gray-mid, 0.9%), $offset: 80px);
   z-index: 2;
 }
 

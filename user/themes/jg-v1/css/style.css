@@ -433,6 +433,7 @@ html [type=button],
  * Styles.
  */
 body {
+  font-size: 1.6rem;
   font-family: "Droid Serif", serif;
   background-color: #002b36; }
 
