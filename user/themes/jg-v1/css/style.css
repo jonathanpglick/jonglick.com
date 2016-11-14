@@ -693,4 +693,5 @@ pre {
     float: right;
     text-align: right; }
   .Pagination .prev {
-    float: left; }
+    float: left;
+    text-align: left; }
