@@ -444,6 +444,14 @@ h2 {
   font-size: 4rem;
   line-height: 4.5rem; }
 
+.pull-left {
+  float: left;
+  margin: 0 20px 20px 0; }
+
+.pull-right {
+  float: right;
+  margin: 0 0 20px 20px; }
+
 code.hljs {
   display: inline;
   padding: 0.25em 0.5em;
