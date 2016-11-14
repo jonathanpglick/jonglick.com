@@ -53,11 +53,11 @@
     {% if show_prev_next %}
       <nav class="Pagination" role="navigation">
           <div class="nav-links">
-            {% if not page.isLast %}
-                <a class="prev" href="{{ page.prevSibling.url }}" rel="prev">&laquo; Previous</a>
-            {% endif %}
             {% if not page.isFirst %}
-                <a class="next" href="{{ page.nextSibling.url }}" rel="next">Next &raquo;</a>
+                <a class="prev" href="{{ page.nextSibling.url }}" rel="next">&laquo; Back</a>
+            {% endif %}
+            {% if not page.isLast %}
+                <a class="next" href="{{ page.prevSibling.url }}" rel="prev">More &raquo;</a>
             {% endif %}
           </div>
       </nav>
