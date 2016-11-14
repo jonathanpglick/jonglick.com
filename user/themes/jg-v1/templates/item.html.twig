@@ -1,21 +1,66 @@
-{% embed 'partials/base.html.twig' %}
-	{% set base_url = page.parent.url %}
-  {% set feed_url = base_url %}
+{% extends 'partials/base.html.twig' %}
+{% set base_url = page.parent.url %}
+{% set feed_url = base_url %}
 
-  {% if base_url == '/' %}
-      {% set base_url = '' %}
-  {% endif %}
+{% if base_url == '/' %}
+    {% set base_url = '' %}
+{% endif %}
 
-  {% if base_url == base_url_relative %}
-      {% set feed_url = base_url~'/'~page.parent.slug %}
-  {% endif  %}
-   
-	{% block content %}
-      {% if config.plugins.breadcrumbs.enabled %}
-        {% include 'partials/breadcrumbs.html.twig' %}
-        {% endif %}
-		
-			 {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
-	{% endblock %}
+{% if base_url == base_url_relative %}
+    {% set feed_url = base_url~'/'~page.parent.slug %}
+{% endif  %}
 
-{% endembed %}
+{% set show_prev_next = true %}
+
+{% block page_header %}
+    {% if page.header.link %}
+        <h1 class="Page-title">
+            {% if page.header.continue_link is not sameas(false) %}
+                <a href="{{ page.url }}"></a>
+            {% endif %}
+            <a href="{{ page.header.link }}">{{ page.title }}</a>
+        </h1>
+    {% else %}
+        <h1 class="Page-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+    {% endif %}
+{% endblock %}
+ 
+{% block content %}
+  {{ page.content }}
+{% endblock %}
+
+{% block page_footer %}
+
+    {% if page.header.author %}
+        <span class="Page-footer-byline">
+            <span class="author vcard">
+                {{ page.header.author }}
+            </span>
+        </span>
+    {% endif %}
+    <span class="Page-footer-date">
+        <time class="entry-date published updated" datetime="{{ page.date|date(config.system.pages.dateformat.short) }}">{{ page.date|date(config.system.pages.dateformat.short) }}</time>
+    </span>
+    {% if page.taxonomy.tag %}
+        <span class="tags-links">
+            Tags:
+            {% for tag in page.taxonomy.tag %}
+                <a href="{{ base_url }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}{% if not loop.last %},{% endif %}</a>
+            {% endfor %}
+        </span>
+    {% endif %}
+
+    {% if show_prev_next %}
+      <nav class="Pagination" role="navigation">
+          <div class="nav-links">
+            {% if not page.isLast %}
+                <a class="prev" href="{{ page.prevSibling.url }}" rel="prev">&laquo; Previous</a>
+            {% endif %}
+            {% if not page.isFirst %}
+                <a class="next" href="{{ page.nextSibling.url }}" rel="next">Next &raquo;</a>
+            {% endif %}
+          </div>
+      </nav>
+    {% endif %}
+
+{% endblock %}

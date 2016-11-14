@@ -449,6 +449,8 @@ code.hljs {
   padding: 0.25em 0.5em;
   border-radius: 8px;
   white-space: nowrap; }
+  code.hljs.hljs-line-numbers {
+    display: none; }
 
 pre {
   max-height: none;
@@ -523,7 +525,8 @@ pre {
   position: relative;
   z-index: 10;
   text-align: center;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  padding-top: 35px; }
   .Layout-sidebar a {
     color: #FFFFFF; }
   @media (min-width: 768px) {
@@ -543,22 +546,20 @@ pre {
 
 .Identity {
   display: block;
-  padding: 35px 0;
+  position: relative;
   font-family: "Raleway", sans-serif;
   font-size: 4rem;
-  line-height: 4rem;
-  text-shadow: 0px 2px 5px #000;
-  position: relative; }
-  .Identity:after {
-    content: '';
-    display: block;
-    position: relative;
-    bottom: -2px;
-    height: 4px;
-    background-color: #FFFFFF;
-    margin: 17.5px auto 0;
-    width: 85%;
-    box-shadow: 0px 2px 1px #000; }
+  line-height: 0.875em;
+  font-weight: bold;
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 20px; }
+  .Identity:hover {
+    text-decoration: none; }
+  @media (min-width: 768px) {
+    .Identity {
+      margin-top: 35px; } }
 
 .Layout-content {
   position: relative;
@@ -577,19 +578,22 @@ pre {
   margin-right: auto; }
 
 .Nav ul {
-  margin: 0;
+  border-top: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  margin: 20px auto;
   padding: 0;
   list-style: none;
   text-align: center;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  max-width: 85%; }
   .Nav ul li {
     display: block;
     flex-grow: 1; }
     .Nav ul li:hover {
-      background: rgba(255, 255, 255, 0.125); }
+      background: rgba(255, 255, 255, 0.05); }
     .Nav ul li.selected {
-      background: rgba(255, 255, 255, 0.25); }
+      background: rgba(255, 255, 255, 0.125); }
     .Nav ul li a {
       display: block;
       padding: 10px;
@@ -636,10 +640,49 @@ pre {
     margin-top: 35px; }
 
 .Page-footer {
-  padding: 20px 20px; }
+  padding: 20px 20px;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  text-align: center; }
   @media (min-width: 768px) {
     .Page-footer {
       padding: 35px 35px; } }
   @media (min-width: 992px) {
     .Page-footer {
       padding: 50px 50px; } }
+  .Page-footer .Page-footer-date,
+  .Page-footer .Page-footer-byline,
+  .Page-footer .tags-links {
+    display: inline-block;
+    margin: 0 1em; }
+
+.Pagination {
+  padding: 20px 20px; }
+  @media (min-width: 768px) {
+    .Pagination {
+      padding: 35px 35px; } }
+  @media (min-width: 992px) {
+    .Pagination {
+      padding: 50px 50px; } }
+  .Pagination .nav-links {
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden; }
+  .Pagination .next,
+  .Pagination .prev {
+    display: block;
+    width: 50%;
+    color: #FFFFFF;
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem;
+    padding: 20px; }
+    .Pagination .next:hover,
+    .Pagination .prev:hover {
+      background: rgba(255, 255, 255, 0.125);
+      text-decoration: none; }
+  .Pagination .next {
+    float: right;
+    text-align: right; }
+  .Pagination .prev {
+    float: left; }

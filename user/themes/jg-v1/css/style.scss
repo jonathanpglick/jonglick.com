@@ -105,6 +105,10 @@ code.hljs {
   padding: 0.25em 0.5em;
   border-radius: 8px;
   white-space: nowrap;
+
+  &.hljs-line-numbers {
+    display: none;
+  }
 }
 pre {
   max-height: none;
@@ -186,6 +190,7 @@ body {
   z-index: 10;
   text-align: center;
   color: #FFFFFF;
+  padding-top: $padding-md;
 
   a {
     color: #FFFFFF;
@@ -211,23 +216,20 @@ body {
 
 .Identity {
   display: block;
-  padding: $padding-md 0;
+  position: relative;
   font-family: $type-heading;
   font-size: 4rem;
-  line-height: 4rem;
-  @include text-shadow();
-  position: relative;
-
-  &:after {
-    content: '';
-    display: block;
-    position: relative;
-    bottom: -2px;
-    height: 4px;
-    background-color: #FFFFFF;
-    margin: $padding-md/2 auto 0;
-    width: 85%;
-    box-shadow: 0px 2px 1px #000;
+  line-height: 0.875em;;
+  font-weight: bold;
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: $padding-sm;
+  &:hover {
+    text-decoration: none;
+  }
+  @include tablet {
+    margin-top: $padding-md;
   }
 }
 
@@ -251,22 +253,25 @@ body {
 
 .Nav {
   ul {
-    margin: 0;
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    margin: $padding-sm auto;
     padding: 0;
     list-style: none;
     text-align: center;
     display: flex;
     flex-direction: row;
+    max-width: 85%;
 
     li {
       display: block;
       flex-grow: 1;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.125);
+        background: rgba(255, 255, 255, 0.05);
       }
       &.selected {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.125);
       }
 
       a {
@@ -316,4 +321,48 @@ body {
 }
 .Page-footer {
   @include content-padding();
+  padding-top: $padding-sm !important;
+  padding-bottom: $padding-sm !important;
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  text-align: center;
+
+  .Page-footer-date,
+  .Page-footer-byline,
+  .tags-links {
+    display: inline-block;
+    margin: 0 1em;
+  }
+}
+
+.Pagination {
+  @include content-padding();
+
+  .nav-links {
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
+  .next,
+  .prev {
+    display: block;
+    width: 50%;
+    color: #FFFFFF;
+    font-family: $type-heading;
+    font-size: 2rem;
+    padding: $padding-sm;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.125);
+      text-decoration: none;
+    }
+  }
+
+  .next {
+    float: right;
+    text-align: right;
+  }
+  .prev {
+    float: left;
+  }
 }

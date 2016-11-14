@@ -86,4 +86,6 @@ The final javascript looks like this:
 
     });
 
-So, the Disqus javascript is only loaded once comments are actually needed, not on the initial jQuery Mobile app load, and the `<div id="disqus_thread">` element will stay on whatever page it was on until a new page needs to use it. </div></div></div>
+So, the Disqus javascript is only loaded once comments are actually needed, not
+on the initial jQuery Mobile app load, and the `<div id="disqus_thread">`
+element will stay on whatever page it was on until a new page needs to use it.
