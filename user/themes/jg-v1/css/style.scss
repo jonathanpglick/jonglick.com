@@ -109,6 +109,7 @@ h2 {
   margin: 0 0 $padding-sm $padding-sm;
 }
 
+// Inline code.
 code.hljs {
   display: inline;
   padding: 0.25em 0.5em;
@@ -119,6 +120,8 @@ code.hljs {
     display: none;
   }
 }
+
+// Block-level code.
 pre {
   max-height: none;
   padding: 0;
@@ -133,6 +136,7 @@ pre {
     white-space: pre;
 
     &.hljs-line-numbers {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;

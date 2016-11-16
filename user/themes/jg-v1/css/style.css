@@ -472,6 +472,7 @@ pre {
     border-radius: 0;
     white-space: pre; }
     pre code.hljs.hljs-line-numbers {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
