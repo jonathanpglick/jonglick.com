@@ -5,6 +5,7 @@
   "main": "",
   "scripts": {
     "start": "gulp watch",
+    "write": "gulp write",
     "sass": "gulp sass"
   },
   "author": "",

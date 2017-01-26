@@ -17,14 +17,19 @@ gulp.task('sass', function() {
             .pipe(livereload());
 });
 
-gulp.task('templates', function() {
+gulp.task('livereload', function() {
   livereload.reload();
 });
 
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('css/**/*.scss', ['sass']);
-  gulp.watch('templates/**/*', ['templates']);
+  gulp.watch('templates/**/*', ['livereload']);
+});
+
+gulp.task('write', function() {
+  livereload.listen();
+  gulp.watch('../../pages/**/*', ['livereload']);
 });
 
 gulp.task('default', ['watch']);
