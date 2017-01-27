@@ -1,12 +1,12 @@
 ---
 title: 'Take your JS to the next level: jQuery'
-date: '2017-01-26 10:31'
-published: false
+date: '2017-01-27 11:23'
+published: true
 ---
 
-As part of my job I often help front and back end developers with their javascript. I've seen many common pitfalls and errors while doing this and kept track of them.
+As part of my job I often help front and back end developers with their javascript, usually with [jQuery](http://jquery.com). jQuery's easy-to-use syntax makes it easy to pick up and understand but transitioning from simple click handling to complex interactions can often end up with an unreadable, error-prone mess.
 
-This post is about the popular library [jQuery](http://jquery.com). It's a great toolkit used on the vast majority of websites and has an easy to use syntax for both designers and developers. Listed below are some of the common pitfalls I've seen people make when using jQuery for basic interaction and DOM manipulation.
+In this post I've outlined some of the simplest things a developer can do to start improving their usage of jQuery, and JavaScript, as a whole.
 
 
 ---
@@ -42,7 +42,7 @@ This may work but it doesn't take into account what would happen if another form
 
     $('form.search-form').on('submit', function() {});
 
-This is even more important when working on projects with many developers, you don't want your code leaking into their features or vice-versa.
+This is even more important when working on projects with many developers; you don't want your code effecting their features or theirs to effect yours.
 
 
 ---
@@ -63,7 +63,7 @@ Take the following example of a common click handler to toggle a menu.
         }
     });
 
-Wow, each time a click happens, `$()` is being called 5 times! By assigning the results of those selections in variables in the beginning, we will only ever have to call them twice. And if the classes or selectors ever change, we only need to update them in one place.
+Wow, each time a click happens, `$()` is being called 5 times! By assigning the results of those selections to variables at the beginning, we will only ever have to call them twice. And if the selectors ever need to change, we only need to update them in one place.
 
     var $menuToggle = $('a.menu-toggle');
     var $menu = $('.menu');
@@ -79,9 +79,9 @@ Wow, each time a click happens, `$()` is being called 5 times! By assigning the 
         }
     });
 
-Storing the results of jQuery calls in variables also lets us _name_ them which can greatly increas the readability of the code.
+Storing the results of jQuery calls in variables also lets us _name_ them which can greatly increase the readability.
 
-Some software (*cough* Drupal *cough*) makes it hard for front-enders to change markup, they're stuck with what the back-end gives them, so they have to use non-obvious selectors to grab what they need. In these cases, using variables is even better because their names can give recognizable purpose to what would otherwise be ambiguous.
+Some software (*cough* Drupal *cough*) makes it hard for front-enders to change markup, they're stuck with what the back-end gives them, so they have to use non-obvious selectors to grab what they need. In these cases, using variables is better than not because their names give recognizable purpose to an otherwise ambiguous selector.
 
 Which would you rather see in your codebase upon returning to it a few months, or even days, later?
 
@@ -91,8 +91,17 @@ Which would you rather see in your codebase upon returning to it a few months, o
 
     $menuContentExpander = $('header .menu > div');
 
+Along with this, simple variable naming conventions can increase readability even further. In my jQuery projects I tend to use these conventions to know the types of variables.
 
-- TODO: naming convention of starting vars with $
+jQuery object variables begin with `$`. This prevents us from constantly re-wrapping the variables with `$()` to ensure they work as we expect.
+
+    var $topNav = $('[data-name="dropdown-menu"] > ul.nav-mega');
+
+DOM elements have "El" or "Element" appended to their names. This identifies them as raw DOM elements, not jQuery ones.
+
+    var headerEl = document.getElementById('header');
+
+Of course, these are just my personal conventions and they can mean different things in other frameworks. The point is to _have_ a convention.
 
 
 ---
@@ -102,7 +111,7 @@ Which would you rather see in your codebase upon returning to it a few months, o
 
 `this` is a confusing wart in the javascript language and I suggest that you should *avoid using it when possible*.
 
-jQuery often uses `this` inside callback functions to reference the current object. In the contrived example below, `this` is used for both the current `<li>` element in the `.each()` loop and as the `<a>` element in the click handler.
+jQuery uses `this` inside callback functions to reference the current object. In the contrived example below, `this` is used for both the current `<li>` element in the `.each()` loop and as the `<a>` element in the click handler.
 
     $('li').each(function() {
         $(this).find('a').on('click', function(e) {
@@ -111,11 +120,11 @@ jQuery often uses `this` inside callback functions to reference the current obje
         });
     });
 
-`this` means different things depending on the closure it's in and each time you encounter `this` you have to spend a few brain cycles to figure out what it references in that place.
+`this` references different things depending on the closure it's in and each time you encounter `this` you have to spend a few brain cycles to figure out what it means in that place.
 
-Luckily, there are some easy ways to avoid `this` and make you code much easier to reason about.
+Luckily, there are some easy ways to avoid `this` and make your code much easier to reason about.
 
-The `.each()` function passes two arguments to its callback, the current index and the current element. By semantically naming the argument in the callback function it becomes very obvious what it is.
+The `.each()` function passes two arguments to its callback: the current index and the current element. By semantically naming the argument in the callback function it becomes obvious what it is.
 
 Event handlers pass an event object into their callback functions. The `currentTarget` property of the event object is the same as what `this` would be in the closure. Mixing that with a properly named variable removes all the error-prone ambiguity and we end up with:
 
@@ -127,7 +136,7 @@ Event handlers pass an event object into their callback functions. The `currentT
         });
     });
 
-Even when a callback function doesn't provide a way to handle `this`, readability can be improved by simply assigning `this` to a semantically named variable.
+Even when there isn't a workaround for `this`, readability can be improved by simply assigning `this` to a semantically named variable.
 
     ...
     .on('load', function(e) {
@@ -136,3 +145,4 @@ Even when a callback function doesn't provide a way to handle `this`, readabilit
     });
     ...
 
+Ahh, much better.
