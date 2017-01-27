@@ -12,7 +12,7 @@
 @import 'utilities';
 
 
-@import 'https://fonts.googleapis.com/css?family=Droid+Serif|Raleway';
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Raleway';
 
 /**
  * Local Code.
@@ -107,6 +107,14 @@ h2 {
 .pull-right {
   float: right;
   margin: 0 0 $padding-sm $padding-sm;
+}
+
+hr {
+  margin: $padding-sm*2 0 $padding-sm;
+}
+
+strong {
+  font-weight: 700;
 }
 
 // Inline code.

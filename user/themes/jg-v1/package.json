@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "start": "gulp watch",
+    "start": "gulp",
     "write": "gulp write",
     "sass": "gulp sass"
   },

@@ -32,4 +32,4 @@ gulp.task('write', function() {
   gulp.watch('../../pages/**/*', ['livereload']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['write', 'watch']);

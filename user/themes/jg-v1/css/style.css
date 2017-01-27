@@ -2,7 +2,7 @@
 /**
  * Mobi.css imports.
  */
-@import 'https://fonts.googleapis.com/css?family=Droid+Serif|Raleway';
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Raleway';
 html {
   box-sizing: border-box; }
 
@@ -451,6 +451,12 @@ h2 {
 .pull-right {
   float: right;
   margin: 0 0 20px 20px; }
+
+hr {
+  margin: 40px 0 20px; }
+
+strong {
+  font-weight: 700; }
 
 code.hljs {
   display: inline;
