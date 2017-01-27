@@ -27,3 +27,5 @@ Management Systems (CMS), Learning Management Systems (LMS), Dojo Toolkit,
 Backbone, Fabric, ExtJS, Canvas, jQuery, jQuery Mobile, Stripe, Apache Solr,
 FFmpeg, Leaflet, OEmbed, AWS, CoffeeScript, Gulp, SalesForce API, Functional
 Programming (FP), Object-Oriented Programming (OOP), Bootstrap
+
+Contact me at [jon@jonglick.com](mailto:jon@jonglick.com)
