@@ -388,3 +388,55 @@ body {
     text-align: left;
   }
 }
+
+.Diigo--links {
+
+  // Hide RSS icon
+  > ul + div {
+    display: none;
+  }
+
+  // Hide annotation links.
+  ul li a + a {
+    display: none;
+  }
+}
+
+div#Librarything--links {
+  margin: $padding-sm (-$padding-sm/2) 0;
+  overflow: hidden;
+
+  .LT_Preload,
+  .LT_powered { display: none; }
+
+  .LT_itemLast {
+    float: right;
+    clear: none !important;
+    width: percentage(1/4);
+    padding: 0 $padding-sm/2 !important;
+    border: 0 !important;
+
+    .LT_cover {
+      margin-top: 0;
+    }
+
+    .LT_titleandauthor {
+      display: block;
+
+      .LT_title { 
+        display: block;
+        font-family: $type-heading !important;
+        font-size: 1.8rem;
+        line-height: 1.2em;
+        margin-bottom: 10px;
+      }
+      .LT_author { 
+        .by { display: none; }
+        display: block;
+        font-family: $type-default !important;
+        font-size: 1.6rem;
+        line-height: 1.3em;
+      }
+    }
+  }
+}

@@ -29,3 +29,23 @@ FFmpeg, Leaflet, OEmbed, AWS, CoffeeScript, Gulp, SalesForce API, Functional
 Programming (FP), Object-Oriented Programming (OOP), Bootstrap
 
 Contact me at [jon@jonglick.com](mailto:jon@jonglick.com)
+
+---
+
+### Recent Links
+
+<div class="Diigo--links">
+  <script type="text/javascript" src="http://www.diigo.com/roll2/linkrolls?v=3&username=jonathanpglick&l_type=0&count=10&desc=0&style=none&title=&tags="></script>
+</div>
+
+[More links](http://www.diigo.com/user/jonathanpglick)
+
+
+### Recent Books
+
+<div id="Librarything--links">
+  <div id="wc92241c130942e60439e99f7dff23762"></div>
+  <script type="text/javascript" charset="UTF-8" src="http://www.librarything.com/widget_get.php?userid=jonathanpglick&theID=wc92241c130942e60439e99f7dff23762"></script>
+</div>
+
+[More books](http://www.librarything.com/catalog.php?view=jonathanpglick&collection=5&shelf=list)

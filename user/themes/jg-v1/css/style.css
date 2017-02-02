@@ -702,3 +702,39 @@ pre {
   .Pagination .prev {
     float: left;
     text-align: left; }
+
+.Diigo--links > ul + div {
+  display: none; }
+
+.Diigo--links ul li a + a {
+  display: none; }
+
+div#Librarything--links {
+  margin: 20px -10px 0;
+  overflow: hidden; }
+  div#Librarything--links .LT_Preload,
+  div#Librarything--links .LT_powered {
+    display: none; }
+  div#Librarything--links .LT_itemLast {
+    float: right;
+    clear: none !important;
+    width: 25%;
+    padding: 0 10px !important;
+    border: 0 !important; }
+    div#Librarything--links .LT_itemLast .LT_cover {
+      margin-top: 0; }
+    div#Librarything--links .LT_itemLast .LT_titleandauthor {
+      display: block; }
+      div#Librarything--links .LT_itemLast .LT_titleandauthor .LT_title {
+        display: block;
+        font-family: "Raleway", sans-serif !important;
+        font-size: 1.8rem;
+        line-height: 1.2em;
+        margin-bottom: 10px; }
+      div#Librarything--links .LT_itemLast .LT_titleandauthor .LT_author {
+        display: block;
+        font-family: "Droid Serif", serif !important;
+        font-size: 1.6rem;
+        line-height: 1.3em; }
+        div#Librarything--links .LT_itemLast .LT_titleandauthor .LT_author .by {
+          display: none; }
