@@ -39,8 +39,9 @@
           <nav class="Nav">
               {% include 'partials/navigation.html.twig' %}
               <div class="Nav-Icons">
-                <a href="{{ uri.rootUrl(true) }}/blog.rss">{% include 'svg/rss.svg' %}</a>
-                <a href="http://github.com/jonathanpglick">{% include 'svg/github.svg' %}</a>
+                <a href="{{ uri.rootUrl(true) }}/blog.rss" title="RSS Feed">{% include 'svg/rss.svg' %}</a>
+                <a href="http://github.com/jonathanpglick" title="GitHub">{% include 'svg/github.svg' %}</a>
+                <a href="http://bitbucket.com/jonathanpglick" title="Bitbucket">{% include 'svg/bitbucket.svg' %}</a>
               </div>
           </nav>
           {% endblock %}
