@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
 
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for JonGlick.com" href="{{ uri.rootUrl(true) }}/blog.rss" />
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for JonGlick.com" href="{{ uri.rootUrl(true) }}/blog.atom" />
     <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 

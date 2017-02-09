@@ -3,7 +3,7 @@ title: Home
 blog_url: blog
 sitemap:
     changefreq: monthly
-    priority: 1.03
+    priority: 1.00
 content:
     items: '@self.children'
     order:
@@ -12,7 +12,8 @@ content:
     limit: 1
     pagination: true
 feed:
-    description: 'Sample Blog Description'
+    title: Jon Glick's blog
+    description: 
     limit: 10
 pagination: true
 ---
