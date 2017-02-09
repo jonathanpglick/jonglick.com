@@ -273,6 +273,13 @@ body {
 }
 
 .Nav {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
   ul {
     border-top: 2px solid #FFF;
     border-bottom: 2px solid #FFF;
@@ -280,6 +287,7 @@ body {
     padding: 0;
     list-style: none;
     text-align: center;
+    width: 100%;
     display: flex;
     flex-direction: row;
     max-width: 85%;
@@ -306,6 +314,23 @@ body {
       display: block;
     }
   }
+
+  .Nav-Icons {
+    margin: 0;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      width: 32px;
+      margin: 0 $padding-sm/4;
+      fill: #FFFFFF;
+      fill: rgba(255, 255, 255, 0.125);
+      &:hover {
+        fill: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+
 }
 
 

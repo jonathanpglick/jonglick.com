@@ -592,30 +592,48 @@ pre {
   margin-left: auto;
   margin-right: auto; }
 
-.Nav ul {
-  border-top: 2px solid #FFF;
-  border-bottom: 2px solid #FFF;
-  margin: 20px auto;
-  padding: 0;
-  list-style: none;
-  text-align: center;
+.Nav {
   display: flex;
-  flex-direction: row;
-  max-width: 85%; }
-  .Nav ul li {
-    display: block;
-    flex-grow: 1; }
-    .Nav ul li:hover {
-      background: rgba(255, 255, 255, 0.05); }
-    .Nav ul li.selected {
-      background: rgba(255, 255, 255, 0.125); }
-    .Nav ul li a {
-      display: block;
-      padding: 10px;
-      text-decoration: none; }
+  flex-direction: column-reverse; }
   @media (min-width: 768px) {
-    .Nav ul {
-      display: block; } }
+    .Nav {
+      flex-direction: column; } }
+  .Nav ul {
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-width: 85%; }
+    .Nav ul li {
+      display: block;
+      flex-grow: 1; }
+      .Nav ul li:hover {
+        background: rgba(255, 255, 255, 0.05); }
+      .Nav ul li.selected {
+        background: rgba(255, 255, 255, 0.125); }
+      .Nav ul li a {
+        display: block;
+        padding: 10px;
+        text-decoration: none; }
+    @media (min-width: 768px) {
+      .Nav ul {
+        display: block; } }
+  .Nav .Nav-Icons {
+    margin: 0;
+    text-align: center; }
+    .Nav .Nav-Icons a {
+      display: inline-block;
+      width: 32px;
+      margin: 0 5px;
+      fill: #FFFFFF;
+      fill: rgba(255, 255, 255, 0.125); }
+      .Nav .Nav-Icons a:hover {
+        fill: white; }
 
 .Page-header {
   padding: 40px 20px; }
