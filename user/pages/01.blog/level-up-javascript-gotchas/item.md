@@ -1,6 +1,6 @@
 ---
 title: 'Take your JS to the next level: Gotchas'
-date: '2017-01-27 11:23'
+date: '2018-06-06 03:47'
 published: true
 ---
 
