@@ -55,7 +55,7 @@ class EnvPlugin extends Plugin
       $host = $this->grav['uri']->host();
       $parts = explode('.', $host);
       $tld = end($parts);
-      $is_dev = ($tld === 'dev');
+      $is_dev = ($tld !== 'com');
 
       $twig = $this->grav['twig'];
       $twig->twig_vars['is_dev'] = $is_dev;
