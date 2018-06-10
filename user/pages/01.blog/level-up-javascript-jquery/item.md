@@ -4,7 +4,9 @@ date: '2017-01-27 11:23'
 published: true
 ---
 
-As part of my job I often help front and back end developers with their javascript, usually with [jQuery](http://jquery.com). jQuery's easy-to-use syntax makes it easy to pick up and understand but transitioning from simple click handling to complex interactions can often end up with an unreadable, error-prone mess.
+jQuery's easy-to-use syntax makes it easy to pick up and understand but
+transitioning from simple click handling to complex interactions can often end
+up with an unreadable, error-prone mess.
 
 In this post I've outlined some of the simplest things a developer can do to start improving their usage of jQuery, and JavaScript, as a whole.
 
